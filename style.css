@@ -11,7 +11,8 @@
     border-radius: 5px;
     background-color: rgb(39, 38, 49);
     width: 400px;
-    height: 400px
+    height: 400px;
+    z-index: 2;
 }
 .circle {
     position: relative;
@@ -20,12 +21,25 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    z-index: 2; 
+    z-index:1;
+    margin: 125px auto;
+    border: 12px solid /* rgb(39, 38, 49) */ red ;
+    
 }
 .ground {
     background: linear-gradient(347deg, rgba(244,225,103,0.9972677595628415) 9%, rgba(255,212,1,1) 54%);
     height: 40%;
     width: 150px;
-    z-index: -1;
     margin-top: 100px  
+}
+.sun {
+    overflow: hidden;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgb(231, 227, 40);
+    box-shadow: 0 0 7px 0 rgb(243, 239, 28);
+    z-index: 2;
+    transform: translate3d(-75px, -5px, 0);
 }
