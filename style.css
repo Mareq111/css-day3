@@ -4,6 +4,7 @@
   align-items: center;
   margin: 20px;
 }
+
 .circle-background {
   display: flex;
   justify-content: center;
@@ -13,30 +14,29 @@
   width: 400px;
   height: 400px;
 }
+
 .circle {
   position: relative;
   overflow: hidden;
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background: linear-gradient(
-    190deg,
-    rgba(135, 151, 198, 1) 4%,
-    rgba(224, 234, 244, 1) 75%
-  );
+  background: linear-gradient(190deg,
+      rgba(135, 151, 198, 1) 4%,
+      rgba(224, 234, 244, 1) 75%);
   z-index: 1;
   animation: sunset-background 5s ease 4500ms infinite;
 }
+
 .ground {
-  background: linear-gradient(
-    347deg,
-    rgba(244, 225, 103, 0.9972677595628415) 9%,
-    rgba(255, 212, 1, 1) 54%
-  );
+  background: linear-gradient(347deg,
+      rgba(244, 225, 103, 0.9972677595628415) 9%,
+      rgba(255, 212, 1, 1) 54%);
   height: 40%;
   width: 150px;
   margin-top: 100px;
 }
+
 .sun {
   position: absolute;
   background-color: #f8f3cd;
@@ -51,51 +51,38 @@
   transform-origin: -5px 160px;
   animation: sunset 5s ease infinite;
 }
+
 #left-triangle {
   position: absolute;
   top: 50px;
   left: 25px;
   height: 50px;
   width: 100px;
-  background-color: #0a6363;
   clip-path: polygon(50% 35%, 0% 100%, 65% 100%);
   animation: left-shadow 5s ease infinite;
 }
+
 #right-triangle {
   position: absolute;
   top: 50px;
   left: 25px;
   height: 50px;
   width: 100px;
-  background-color: rgb(9, 204, 198);
   clip-path: polygon(50% 35%, 100% 100%, 65% 100%);
   animation: right-shadow 5s ease infinite;
 }
+
 #shadow {
   position: absolute;
-  background: rgba(0, 0, 0, 0.2);
-  top: 75px;
+  background: rgba(0, 0, 0, 0.12);
+  clip-path: polygon(90% 70%, 0 0, 100% 0);
+  top: 100px;
   left: 25px;
   height: 50px;
   width: 100px;
-  clip-path: polygon(50% 100%, 0 50%, 100% 50%);
-  top: 124px;
-  left: -80px;
-  height: 30px;
-  width: 360px;
+  animation: shadow-triangle 5s ease infinite;
+  animation-delay: 50ms;
 }
-/* .shadow {
-  position: absolute;
-  z-index: 2;
-  top: 124px;
-  left: -80px;
-  height: 30px;
-  width: 360px;
-  background: rgba(0, 0, 0, 0.2);
-  transform-origin: 50% 0%;
-  clip-path: polygon(115px 0%, 231px 0%, 80% 100%);
-  animation: shadow-on-the-floor 4s infinite;
-} */
 
 /* animations */
 
@@ -124,17 +111,21 @@
     transform: rotate(70deg);
   }
 }
+
 /* left shadow of left part of piramid */
 @keyframes left-shadow {
   0% {
     background-color: #e4e4e4;
   }
+
   30% {
     background-color: #f7f8f8;
   }
+
   70% {
     background-color: #e4e4e4;
   }
+
   100% {
     background-color: #d1d1d1;
   }
@@ -146,33 +137,53 @@
   0% {
     background-color: #d1d1d1;
   }
+
   30% {
     background-color: #e4e4e4;
   }
+
   70% {
     background-color: #f7f8f8;
   }
+
   100% {
     background-color: #dcd7d7;
   }
 }
+
 /* sunset to animate .circle */
 
 @keyframes sunset-background {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.5);
   }
 }
-@keyframes second-sunset-background {
-  from {
-    opacity: 0;
+
+/* shadow triangle animation */
+
+@keyframes shadow-triangle {
+  0% {
+    clip-path: polygon(90% 20%, 0 0, 100% 0);
   }
-  to {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.5);
+
+  30% {
+    clip-path: polygon(90% 70%, 0 0, 100% 0);
+  }
+
+  50% {
+    clip-path: polygon(50% 70%, 0 0, 100% 0);
+  }
+
+  70% {
+    clip-path: polygon(20% 20%, 0 0, 100% 0);
+  }
+
+  100% {
+    clip-path: polygon(0% 1%, 0 0, 100% 0);
   }
 }
